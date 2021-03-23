@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class NavigationComponent {
-    title = 'c-navigation';
+    title = 'navigation';
 }
