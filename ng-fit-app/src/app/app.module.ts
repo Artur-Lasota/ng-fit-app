@@ -9,6 +9,8 @@ import { HomeComponent } from './modules/home/components/home/home.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { LoginComponent } from './core/authentication/login/login.component';
+import { LogoutComponent } from './core/authentication/logout/logout.component';
+import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { LoginComponent } from './core/authentication/login/login.component';
     NavigationComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
+    AuthButtonLogicComponent
   ],
   imports: [
     BrowserModule,
