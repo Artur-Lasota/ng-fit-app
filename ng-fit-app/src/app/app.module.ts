@@ -8,6 +8,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './modules/home/components/home/home.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { LoginComponent } from './core/authentication/login/login.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { environment as env } from '../environments/environment';
     AppComponent,
     NavigationComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
