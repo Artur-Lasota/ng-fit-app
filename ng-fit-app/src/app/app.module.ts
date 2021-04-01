@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './modules/home/components/home/home.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
 
 
 @NgModule({
@@ -17,7 +19,10 @@ import { HomeComponent } from './modules/home/components/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
