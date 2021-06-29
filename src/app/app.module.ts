@@ -11,6 +11,7 @@ import { environment as env } from '../environments/environment';
 import { LoginComponent } from './core/authentication/login/login.component';
 import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AuthButtonLogicComponent } from './core/authentication/auth-button-logi
     AuthModule.forRoot({
       ...env.auth,
     }),
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
