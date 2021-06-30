@@ -12,6 +12,7 @@ import { LoginComponent } from './core/authentication/login/login.component';
 import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { MainGridComponent } from '../app/modules/home/components/main-grid/main-grid.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatSliderModule } from '@angular/material/slider';
     HomeComponent,
     LoginComponent,
     LogoutComponent,
-    AuthButtonLogicComponent
+    AuthButtonLogicComponent,
+    MainGridComponent
   ],
   imports: [
     BrowserModule,
