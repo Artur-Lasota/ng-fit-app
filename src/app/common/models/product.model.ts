@@ -1,6 +1,5 @@
 import { MeasuresModel } from './measures.model';
 import { SimpleMeasuresModel } from './simple-measures.model';
-
 export class ProductModel {
     public id!: number;
     public name!: string;
