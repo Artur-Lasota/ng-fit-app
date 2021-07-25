@@ -14,6 +14,7 @@ import { AuthButtonLogicComponent } from './core/authentication/auth-button-logi
 import { MatSliderModule } from '@angular/material/slider';
 import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
 import { HttpClientModule } from '@angular/common/http';
+import { MainViewComponent } from './modules/home/components/main-view/main-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     LogoutComponent,
-    AuthButtonLogicComponent
+    AuthButtonLogicComponent,
+    MainViewComponent
   ],
   imports: [
     BrowserModule,
