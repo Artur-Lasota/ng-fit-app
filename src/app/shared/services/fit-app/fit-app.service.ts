@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Constants } from '../../common/constants';
-import { CustomHttpParamEncoder } from './param-encoder';
+import { Constants } from '../../../common/constants';
+import { CustomHttpParamEncoder } from '../param-encoder/param-encoder';
 @Injectable()
 export class FitAppService {
 

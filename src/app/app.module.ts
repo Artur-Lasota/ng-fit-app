@@ -12,8 +12,8 @@ import { LoginComponent } from './core/authentication/login/login.component';
 import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
 import { MatSliderModule } from '@angular/material/slider';
-
-
+import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +30,13 @@ import { MatSliderModule } from '@angular/material/slider';
     AuthModule.forRoot({
       ...env.auth,
     }),
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    FitAppService,
+    CustomHttpParamEncoder,
+    ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

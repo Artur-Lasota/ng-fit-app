@@ -1,1 +1,5 @@
-<div><mat-slider min="1" max="100" step="1" value="1"></mat-slider></div>
+<div>
+    <li *ngFor="let item of productsList">
+        {{item.name}} {{item.energy}} kcal
+    </li>
+</div>
