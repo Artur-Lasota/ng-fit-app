@@ -12,9 +12,9 @@ import { LoginComponent } from './core/authentication/login/login.component';
 import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
 import { MatSliderModule } from '@angular/material/slider';
-import { MainGridComponent } from '../app/modules/home/components/main-grid/main-grid.component';
-
-
+import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
+import { HttpClientModule } from '@angular/common/http';
+import { MainViewComponent } from './modules/home/components/main-view/main-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,7 @@ import { MainGridComponent } from '../app/modules/home/components/main-grid/main
     LoginComponent,
     LogoutComponent,
     AuthButtonLogicComponent,
-    MainGridComponent
+    MainViewComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +32,13 @@ import { MainGridComponent } from '../app/modules/home/components/main-grid/main
     AuthModule.forRoot({
       ...env.auth,
     }),
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    FitAppService,
+    CustomHttpParamEncoder,
+    ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
