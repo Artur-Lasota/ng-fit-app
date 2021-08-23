@@ -1,4 +1,11 @@
 .main-view__container {
+    width: 60%;
+    float: right;
+    border: 2px solid orange;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 8px 0;
+    
     & li {
         display:flex;
     }

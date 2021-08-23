@@ -6,5 +6,16 @@
     background-color: $blue;
     color: $white;
     display: flex;
-    justify-content: space-between
+
+    &__routes-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 40%;
+        margin-left: 28vw;
+
+        div {
+            padding: 12px;
+        }
+    }
 }
