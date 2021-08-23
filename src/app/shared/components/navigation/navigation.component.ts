@@ -18,7 +18,6 @@ export class NavigationComponent {
     public redirect(redirectTo: string): void {
         this.urlChanged.emit(redirectTo);
         this.router.navigate(['../' + redirectTo], { relativeTo: this.activatedRoute });
-        console.log( this.router);
     }
 }
 

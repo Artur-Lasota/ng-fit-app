@@ -1,8 +1,12 @@
 @import "../../../../assets/scss/constants.scss";
 
-.footer{
-    width: 100%;
-    height: 70px;
-    background-color: $red;
-    color:$white;
+
+.footer-container {
+    align-self: flex-end;
+    &__footer-content {
+        width: 100%;
+        height: 70px;
+        background-color: $red;
+        color:$white;
+    }
 }

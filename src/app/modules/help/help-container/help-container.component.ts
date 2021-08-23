@@ -9,6 +9,5 @@ import { Component } from '@angular/core';
 export class HelpContainerComponent {
 
     constructor() {
-        console.log('help')
     }
 }

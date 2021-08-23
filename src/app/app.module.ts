@@ -20,6 +20,7 @@ import { CustomProductComponent } from './modules/products/custom-product/custom
 import { CustomRecipeComponent } from './modules/products/custom-recipe/custom-recipe.component';
 import { HelpContainerComponent } from './modules/help/help-container/help-container.component';
 import { SettingsComponent } from './modules/settings/settings.component';
+import { HelpTileComponent } from './modules/help/help-tile/help-tile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { SettingsComponent } from './modules/settings/settings.component';
     CustomProductComponent,
     CustomRecipeComponent,
     HelpContainerComponent,
-    SettingsComponent
+    SettingsComponent,
+    HelpTileComponent
   ],
   imports: [
     BrowserModule,
