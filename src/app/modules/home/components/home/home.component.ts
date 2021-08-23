@@ -18,6 +18,5 @@ export class HomeComponent implements OnInit {
         await this.productsService.getProduct().then(
             x => x.forEach(i => this.productsList.push(i))
         );
-        console.log(this.productsList);
     }
 }

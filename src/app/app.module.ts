@@ -15,6 +15,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
 import { HttpClientModule } from '@angular/common/http';
 import { MainViewComponent } from './modules/home/components/main-view/main-view.component';
+import { ProductsContainerComponent } from './modules/products/products-container/products-container.component';
+import { CustomProductComponent } from './modules/products/custom-product/custom-product.component';
+import { CustomRecipeComponent } from './modules/products/custom-recipe/custom-recipe.component';
+import { HelpContainerComponent } from './modules/help/help-container/help-container.component';
+import { SettingsComponent } from './modules/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,12 @@ import { MainViewComponent } from './modules/home/components/main-view/main-view
     LoginComponent,
     LogoutComponent,
     AuthButtonLogicComponent,
-    MainViewComponent
+    MainViewComponent,
+    ProductsContainerComponent,
+    CustomProductComponent,
+    CustomRecipeComponent,
+    HelpContainerComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,10 +3,11 @@
         Fit-app
     </div>
     <article class="nav__routes-container">
-        <div>Dziennik</div>
-        <div>Produkty</div>
-        <div>Ustawienia</div>
-        <div>Pomoc</div>
+        <button (click)="redirect('diary')">Dziennik</button>
+        <button (click)="redirect('products')">Produkty</button>
+        <button (click)="redirect('settings')">Ustawienia</button>
+        <button (click)="redirect('help')">Pomoc</button>
         <app-auth-button></app-auth-button>
     </article>
 </nav>
+<router-outlet></router-outlet>

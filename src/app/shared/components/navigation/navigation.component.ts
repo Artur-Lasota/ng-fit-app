@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-navigation',
@@ -7,5 +8,17 @@ import { Component } from '@angular/core';
 })
 
 export class NavigationComponent {
-    title = 'navigation';
+    @Output()
+    public urlChanged: EventEmitter<any> = new EventEmitter();
+
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+
+    }
+
+    public redirect(redirectTo: string): void {
+        this.urlChanged.emit(redirectTo);
+        this.router.navigate(['../' + redirectTo], { relativeTo: this.activatedRoute });
+        console.log( this.router);
+    }
 }
+
