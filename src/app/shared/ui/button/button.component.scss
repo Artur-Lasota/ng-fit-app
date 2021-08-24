@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/constants.scss";
+
 .button-container {
     width: 100%;
     margin-top: 16px;
@@ -7,11 +9,13 @@
     &__button--green {
         width: 200px;
         padding: 8px;
-        background-color: green;
-        color: white;
+        background-color: $lightblue;
+        color: $white;
         font-size: 20px;
         text-decoration: none;
         text-align: center;
         cursor: pointer;
+        border: none;
+        border-radius: 4px;
     }
 }
