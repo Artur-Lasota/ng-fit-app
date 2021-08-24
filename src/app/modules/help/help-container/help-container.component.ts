@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-help-container',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 
 export class HelpContainerComponent {
 
-    constructor() {
+    constructor(translate: TranslateService) {
+        translate.setDefaultLang('en');
     }
 }

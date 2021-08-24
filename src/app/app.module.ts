@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +15,7 @@ import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainViewComponent } from './modules/home/components/main-view/main-view.component';
 import { ProductsContainerComponent } from './modules/products/products-container/products-container.component';
 import { CustomProductComponent } from './modules/products/custom-product/custom-product.component';
@@ -21,6 +23,14 @@ import { CustomRecipeComponent } from './modules/products/custom-recipe/custom-r
 import { HelpContainerComponent } from './modules/help/help-container/help-container.component';
 import { SettingsComponent } from './modules/settings/settings.component';
 import { HelpTileComponent } from './modules/help/help-tile/help-tile.component';
+import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
+
+export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
+  return new MultiTranslateHttpLoader(http, [
+      { prefix: './assets/i18n/', suffix: '.json' }
+  ]);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +50,13 @@ import { HelpTileComponent } from './modules/help/help-tile/help-tile.component'
   ],
   imports: [
     BrowserModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+    }
+    }),
     AppRoutingModule,
     AuthModule.forRoot({
       ...env.auth,

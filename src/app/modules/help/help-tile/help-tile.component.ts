@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-help-tile',
@@ -8,7 +8,14 @@ import { Component } from '@angular/core';
 
 export class HelpTileComponent {
 
+    @Input()
+    public title: string | undefined;
+
+    @Input()
+    public content: string | undefined;
+
     constructor() {
-        console.log('help-tile')
     }
+
+
 }

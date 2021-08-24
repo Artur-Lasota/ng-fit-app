@@ -1,0 +1,18 @@
+@import "../../../../assets/scss/constants.scss";
+
+.tile-container {
+    border: 1px $grayWithOpacity solid;
+    width: 356px;
+    height: 264px;
+    margin-top: 22px;
+    border-radius: 6px;
+
+    &:hover {
+    box-shadow: 0 0 8px $grayWithOpacity;
+    transition: box-shadow 0.3s ease-in-out;
+    }
+
+    &__tile-content {
+        padding: 16px;
+    }
+}

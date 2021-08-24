@@ -1,0 +1,16 @@
+{
+    "help": {
+        "title": {
+            "support": "Contact Support"
+        },
+        "content": {
+            "support": "We are here to help. If you can't find an answer to your question in our videos or the user manual, click here to drop us a line and we will get back to you with an answer as soon as we can."
+        }
+    },
+    "button": {
+        "mail": "fit_app@gmail.com",
+        "search": "Search",
+        "read": "Read",
+        "watch": "Watch"
+    }
+}
