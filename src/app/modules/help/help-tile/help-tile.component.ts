@@ -14,6 +14,9 @@ export class HelpTileComponent {
     @Input()
     public content: string | undefined;
 
+    @Input()
+    buttonLabel: string | undefined;
+
     constructor() {
     }
 

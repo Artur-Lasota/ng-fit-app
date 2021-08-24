@@ -24,6 +24,7 @@ import { HelpContainerComponent } from './modules/help/help-container/help-conta
 import { SettingsComponent } from './modules/settings/settings.component';
 import { HelpTileComponent } from './modules/help/help-tile/help-tile.component';
 import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
+import { ButtonComponent } from './shared/ui/button/button.component';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -46,7 +47,8 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     CustomRecipeComponent,
     HelpContainerComponent,
     SettingsComponent,
-    HelpTileComponent
+    HelpTileComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

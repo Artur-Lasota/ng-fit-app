@@ -1,0 +1,17 @@
+.button-container {
+    width: 100%;
+    margin-top: 16px;
+    text-align: center;
+
+
+    &__button--green {
+        width: 200px;
+        padding: 8px;
+        background-color: green;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+    }
+}
