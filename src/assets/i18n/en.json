@@ -19,6 +19,9 @@
         "mail": "fit_app@gmail.com",
         "search": "Search",
         "read": "Read",
-        "watch": "Watch"
+        "watch": "Watch",
+        "recipes": "Recipes",
+        "customProduct": "Custom Product",
+        "searchProduct": "Search product"
     }
 }

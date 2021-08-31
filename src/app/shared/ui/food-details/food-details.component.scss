@@ -1,0 +1,12 @@
+@import "../../../../assets/scss/constants.scss";
+
+.food-details-container {
+    border: 1px solid $grayWithOpacity;
+    height: 568px;
+    width: 100%;
+    margin: 8px 24px;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+}

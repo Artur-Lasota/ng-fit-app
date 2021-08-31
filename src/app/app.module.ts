@@ -25,6 +25,10 @@ import { SettingsComponent } from './modules/settings/settings.component';
 import { HelpTileComponent } from './modules/help/help-tile/help-tile.component';
 import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
 import { ButtonComponent } from './shared/ui/button/button.component';
+import { ProductsNavigationComponent } from './modules/products/products-nav/products-nav.component';
+import { SearchProductComponent } from './modules/products/search-product/search-product.component';
+import { SideNavComponent } from './shared/ui/side-nav/side-nav.component';
+import { FoodDetailsComponent } from './shared/ui/food-details/food-details.component';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -48,7 +52,11 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     HelpContainerComponent,
     SettingsComponent,
     HelpTileComponent,
-    ButtonComponent
+    ButtonComponent,
+    ProductsNavigationComponent,
+    SearchProductComponent,
+    SideNavComponent,
+    FoodDetailsComponent
   ],
   imports: [
     BrowserModule,

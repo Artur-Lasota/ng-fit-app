@@ -1,0 +1,28 @@
+@import "../../../../assets/scss/constants.scss";
+
+.side-nav-container {
+    margin: 8px 24px;
+    height: 568px;
+    width: 300px;
+    background-color: $yellowWhite;
+    border: 1px solid $yellow;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__recipes-list {
+        height: 80%;
+        width: 90%;
+        background-color: $white;
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

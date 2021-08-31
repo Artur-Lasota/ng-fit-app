@@ -1,3 +1,5 @@
-<nav>
-    products-nav works!
+<nav class="products-nav__wrapper">
+    <app-button [label]="'button.recipes' | translate" [color]="'flat-red'" (click)="redirect('recipes')"></app-button>
+    <app-button [label]="'button.customProduct' | translate" [color]="'flat-red'" (click)="redirect('custom')"></app-button>
+    <app-button [label]="'button.searchProduct' | translate" [color]="'flat-red'" (click)="redirect('search')"></app-button>
 </nav>

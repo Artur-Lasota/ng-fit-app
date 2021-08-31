@@ -11,6 +11,8 @@ export class ButtonComponent {
 
     @Input()
     label: string | undefined;
+    @Input()
+    color: string | undefined;
 
     constructor(translate: TranslateService) {
     }

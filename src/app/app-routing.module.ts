@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsContainerComponent
+    component: ProductsContainerComponent,
+    loadChildren: () => import('./modules/products/products-routing.module').then(m => m.ProductsRoutingModule),
   },
   {
     path: 'settings',

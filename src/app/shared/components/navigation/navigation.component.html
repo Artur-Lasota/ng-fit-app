@@ -3,10 +3,10 @@
         Fit-app
     </div>
     <article class="nav__routes-container">
-        <button (click)="redirect('diary')">Dziennik</button>
-        <button (click)="redirect('products')">Produkty</button>
-        <button (click)="redirect('settings')">Ustawienia</button>
-        <button (click)="redirect('help')">Pomoc</button>
+        <app-button (click)="redirect('diary')" [label]="'Dziennik'" [color]="'flat-blue'"></app-button>
+        <app-button (click)="redirect('products')" [label]="'Produkty'" [color]="'flat-blue'"></app-button>
+        <app-button (click)="redirect('settings')" [label]="'Ustawienia'" [color]="'flat-blue'"></app-button>
+        <app-button (click)="redirect('help')" [label]="'Pomoc'" [color]="'flat-blue'"></app-button>
         <app-auth-button></app-auth-button>
     </article>
 </nav>
