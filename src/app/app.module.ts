@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { ProductsNavigationComponent } from './modules/products/products-nav/pro
 import { SearchProductComponent } from './modules/products/search-product/search-product.component';
 import { SideNavComponent } from './shared/ui/side-nav/side-nav.component';
 import { FoodDetailsComponent } from './shared/ui/food-details/food-details.component';
+import { DialogWindowComponent } from './shared/ui/dialog-window/dialog-window.component';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -56,10 +59,12 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     ProductsNavigationComponent,
     SearchProductComponent,
     SideNavComponent,
-    FoodDetailsComponent
+    FoodDetailsComponent,
+    DialogWindowComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -72,12 +77,15 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
       ...env.auth,
     }),
     MatSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
   ],
+  entryComponents: [DialogWindowComponent],
   providers: [
     FitAppService,
     CustomHttpParamEncoder,
-    ProductsService],
+    ProductsService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
