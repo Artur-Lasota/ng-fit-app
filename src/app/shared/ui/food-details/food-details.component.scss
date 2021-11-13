@@ -8,31 +8,23 @@
     padding: 8px;
     border-radius: 4px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+}
 
-    &__label-wrapper {
-        border: 1px solid $black;
-        width: 320px;
-        font-size: $label-font-size;
+.food-details {
+    &__header {
+        font-weight: $semi-bold;
+        font-size: 24px;
+        padding: 8px;
+    }
 
-        .label-wrapper {
-            &__header {
-                background-color: $grayWithOpacity;
-                padding: 2px;
-                font-weight: $semi-bold;
-                text-align: center;
-                border-bottom: 1px solid $black;
-            }
+    &__label {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: flex-end;
+    }
 
-            &__details {
-                padding: 8px;
-
-                .details__header {
-                    font-size: 16px;
-                    font-weight: $bold;
-                    border-bottom: 2px solid $black;
-                }
-            }
-        }
+    &__empty {
+        text-align: center;
     }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CategoryModel } from 'src/app/common/models/category.model';
 import { ProductModel } from 'src/app/common/models/product.model';
 
 @Component({
@@ -11,11 +12,13 @@ export class FoodDetailsComponent implements OnInit {
 
     @Input()
     public selectedProduct: ProductModel | undefined;
+    @Input()
+    public category!: CategoryModel;
 
     constructor() {
     }
 
     ngOnInit(): void {
-        console.log(this.selectedProduct);
+        console.log(this.category)
     }
 }

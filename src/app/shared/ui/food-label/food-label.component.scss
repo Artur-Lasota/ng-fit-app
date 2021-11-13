@@ -1,0 +1,65 @@
+@import "../../../../assets/scss/constants.scss";
+
+.label-wrapper {
+    border: 1px solid $black;
+    width: 320px;
+    font-size: $label-font-size;
+    height: fit-content;
+
+    &__header {
+        background-color: $grayWithOpacity;
+        padding: 2px;
+        font-weight: $semi-bold;
+        text-align: center;
+        border-bottom: 1px solid $black;
+    }
+
+    &__details {
+        padding: 8px;
+
+        .details {
+            &__header-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 4px solid $black;
+            }
+
+            &__item-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 2px solid $black;
+            }
+
+            &__item-header {
+                font-weight: $semi-bold;
+            }
+
+            &__header {
+                font-size: 16px;
+                font-weight: $bold;
+                border-bottom: 3px solid $black;
+                margin: 0;
+            }
+
+            &__divider {
+                border-right: 2px solid $black;
+            }
+
+            &__sub-text {
+                padding: 8px;
+
+                &--center {
+                    text-align: center;
+                }
+
+                &--right {
+                    text-align: right;
+                }
+
+                &--with-margin {
+                    padding-left: 16px;
+                }
+            }
+        }
+    }
+}

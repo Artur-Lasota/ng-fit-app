@@ -1,0 +1,3 @@
+{
+    "/category/:categoryId": "/category?categoryId=:categoryId"
+}

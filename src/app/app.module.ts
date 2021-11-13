@@ -32,6 +32,8 @@ import { SearchProductComponent } from './modules/products/search-product/search
 import { SideNavComponent } from './shared/ui/side-nav/side-nav.component';
 import { FoodDetailsComponent } from './shared/ui/food-details/food-details.component';
 import { DialogWindowComponent } from './shared/ui/dialog-window/dialog-window.component';
+import { FoodLabelComponent } from './shared/ui/food-label/food-label.component';
+import { CategoryService } from './shared/services/fit-app/category/category.service';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -60,7 +62,8 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     SearchProductComponent,
     SideNavComponent,
     FoodDetailsComponent,
-    DialogWindowComponent
+    DialogWindowComponent,
+    FoodLabelComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     FitAppService,
     CustomHttpParamEncoder,
     ProductsService,
+    CategoryService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
