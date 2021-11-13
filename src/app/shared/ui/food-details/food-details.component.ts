@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { CategoryModel } from 'src/app/common/models/category.model';
 import { ProductModel } from 'src/app/common/models/product.model';
 
@@ -8,16 +8,27 @@ import { ProductModel } from 'src/app/common/models/product.model';
     styleUrls: ['./food-details.component.scss']
 })
 
-export class FoodDetailsComponent implements OnInit {
+export class FoodDetailsComponent implements OnChanges {
 
     @Input()
-    public selectedProduct: ProductModel | undefined;
+    public selectedProduct!: ProductModel;
     @Input()
     public category!: CategoryModel;
 
     constructor() {
     }
 
-    ngOnInit(): void {
+    ngOnChanges(): void {
+        this.transforTBData();
+    }
+
+    private transforTBData(): void {
+        if (this.selectedProduct){
+            Object.keys(this.selectedProduct).forEach(key => {
+                if (!(this.selectedProduct as any)[key]) {
+                    (this.selectedProduct as any)[key] = '-';
+                }
+            });
+        }
     }
 }
