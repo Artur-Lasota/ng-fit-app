@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DialogWindowComponent } from '../dialog-window/dialog-window.component';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-side-nav',
@@ -10,7 +10,16 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 export class SideNavComponent {
 
-    constructor(public dialog: MatDialog) {
+    @Output()
+    public selectedItem: EventEmitter<any> = new EventEmitter();
+    @Input()
+    public items: any[] = [];
+
+        constructor(public dialog: MatDialog) {
+    }
+
+    public selectItem(item: any): void{
+        this.selectedItem.emit(item);
     }
 
     public openDialog(): void {

@@ -3,6 +3,9 @@
         <app-button mat-button [label]="'Add recipe'" [color]="'flat-red'" (click)="openDialog()"></app-button>
         <app-button [label]="'Import recipe'" [color]="'flat-red'"></app-button>
     </div>
-    <article class="side-nav-container__recipes-list">
-    </article>
+    <div class="side-nav-container__list">
+        <li *ngFor="let item of items" class="list__item" (click)="selectItem(item)">
+            {{item.name}}
+        </li>
+    </div>
 </section>

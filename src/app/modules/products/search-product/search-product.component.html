@@ -1,4 +1,5 @@
 <section class="search-product-container">
-    <app-side-nav></app-side-nav>
-    <app-food-details class="search-product-container__food-details"></app-food-details>
+    <app-side-nav [items]="productsList" (selectedItem)="selectedItem($event)"></app-side-nav>
+    <app-food-details class="search-product-container__food-details" [selectedProduct]="selectedProduct">
+    </app-food-details>
 </section>

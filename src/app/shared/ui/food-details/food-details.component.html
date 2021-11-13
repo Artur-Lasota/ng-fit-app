@@ -1,3 +1,19 @@
 <section class="food-details-container">
-    <p>Get started with a new food search!</p>
+    <p *ngIf="!selectedProduct">Get started with a new food search!</p>
+    <div *ngIf="selectedProduct">
+        <p>Name: {{selectedProduct.name}} (100g)</p>
+        <p>Producent: {{selectedProduct.manufacturer}}</p>
+        <p>Wartość odżywcza: {{selectedProduct.energy}} kcal</p>
+        <p>Weglowodany:{{selectedProduct.carbohydrate}} g</p>
+        <p>Białka: {{selectedProduct.protein}} g</p>
+        <p>Białka zwierzęce: {{selectedProduct.animalProtein}} g</p>
+        <p>Białka warzywne: {{selectedProduct.vegetableProtein}} g</p>
+        <p>Tłuszcze: {{selectedProduct.fat}} g</p>
+        <p>Tłuszcz nasycony: {{selectedProduct.saturatedFat}} g</p>
+        <p>Tłuszcz nienasycony: {{selectedProduct.monounsaturatedFat}} g</p>
+        <p>Tłuszcz wielonasycony: {{selectedProduct.polyunsaturatedFat}} g</p>
+        <p>Cholesterol: {{selectedProduct.cholesterol}} g</p>
+        <p>Błonnik: {{selectedProduct.fiber}} g</p>
+        <p>Cukier: {{selectedProduct.sugars}} g</p>
+    </div>
 </section>
