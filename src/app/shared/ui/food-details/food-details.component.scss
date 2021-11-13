@@ -9,4 +9,30 @@
     border-radius: 4px;
     display: flex;
     justify-content: space-around;
+
+    &__label-wrapper {
+        border: 1px solid $black;
+        width: 320px;
+        font-size: $label-font-size;
+
+        .label-wrapper {
+            &__header {
+                background-color: $grayWithOpacity;
+                padding: 2px;
+                font-weight: $semi-bold;
+                text-align: center;
+                border-bottom: 1px solid $black;
+            }
+
+            &__details {
+                padding: 8px;
+
+                .details__header {
+                    font-size: 16px;
+                    font-weight: $bold;
+                    border-bottom: 2px solid $black;
+                }
+            }
+        }
+    }
 }

@@ -1,19 +1,25 @@
 <section class="food-details-container">
     <p *ngIf="!selectedProduct">Get started with a new food search!</p>
-    <div *ngIf="selectedProduct">
-        <p>Name: {{selectedProduct.name}} (100g)</p>
-        <p>Producent: {{selectedProduct.manufacturer}}</p>
-        <p>Wartość odżywcza: {{selectedProduct.energy}} kcal</p>
-        <p>Weglowodany:{{selectedProduct.carbohydrate}} g</p>
-        <p>Białka: {{selectedProduct.protein}} g</p>
-        <p>Białka zwierzęce: {{selectedProduct.animalProtein}} g</p>
-        <p>Białka warzywne: {{selectedProduct.vegetableProtein}} g</p>
-        <p>Tłuszcze: {{selectedProduct.fat}} g</p>
-        <p>Tłuszcz nasycony: {{selectedProduct.saturatedFat}} g</p>
-        <p>Tłuszcz nienasycony: {{selectedProduct.monounsaturatedFat}} g</p>
-        <p>Tłuszcz wielonasycony: {{selectedProduct.polyunsaturatedFat}} g</p>
-        <p>Cholesterol: {{selectedProduct.cholesterol}} g</p>
-        <p>Błonnik: {{selectedProduct.fiber}} g</p>
-        <p>Cukier: {{selectedProduct.sugars}} g</p>
+    <div *ngIf="selectedProduct" class="food-details-container__label-wrapper">
+        <p class="label-wrapper__header">{{selectedProduct.name}}</p>
+        <div class="label-wrapper__details">
+            <div>
+                <p class="details__header">Nutrition Information</p>
+                <div class="col-5">dupa</div>
+                <div class="col-6">dupa</div>
+            </div>
+            <p>Energy: {{selectedProduct.energy}} kcal</p>
+            <p>Weglowodany:{{selectedProduct.carbohydrate}} g</p>
+            <p>Białka: {{selectedProduct.protein}} g</p>
+            <p>Białka zwierzęce: {{selectedProduct.animalProtein}} g</p>
+            <p>Białka warzywne: {{selectedProduct.vegetableProtein}} g</p>
+            <p>Tłuszcze: {{selectedProduct.fat}} g</p>
+            <p>Tłuszcz nasycony: {{selectedProduct.saturatedFat}} g</p>
+            <p>Tłuszcz nienasycony: {{selectedProduct.monounsaturatedFat}} g</p>
+            <p>Tłuszcz wielonasycony: {{selectedProduct.polyunsaturatedFat}} g</p>
+            <p>Cholesterol: {{selectedProduct.cholesterol}} g</p>
+            <p>Błonnik: {{selectedProduct.fiber}} g</p>
+            <p>Cukier: {{selectedProduct.sugars}} g</p>
+        </div>
     </div>
 </section>
