@@ -2,7 +2,7 @@
     <p *ngIf="!selectedProduct" class="food-details__empty">Get started with a new food search!</p>
     <div *ngIf="selectedProduct && category" class="food-details__label col-12">
         <div class="col-12 food-details__header">{{selectedProduct.name}}</div>
-        <div class="col-7">
+        <div class="col-7 food-details__product-details">
             <p>Category: {{category.name}}</p>
             <p>Notes:</p>
             <p>Serving Sizes:</p>
