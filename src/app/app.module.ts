@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +33,8 @@ import { FoodDetailsComponent } from './shared/ui/food-details/food-details.comp
 import { DialogWindowComponent } from './shared/ui/dialog-window/dialog-window.component';
 import { FoodLabelComponent } from './shared/ui/food-label/food-label.component';
 import { CategoryService } from './shared/services/fit-app/category/category.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -82,6 +83,8 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     MatSliderModule,
     HttpClientModule,
     MatDialogModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   entryComponents: [DialogWindowComponent],
   providers: [

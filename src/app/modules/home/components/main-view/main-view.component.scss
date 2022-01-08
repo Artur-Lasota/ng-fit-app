@@ -1,12 +1,89 @@
+@import "../../../../../assets/scss/constants.scss";
+
 .main-view__container {
     width: 60%;
+    height: 500px;
     float: right;
-    border: 2px solid orange;
+    border: 1px solid $gray;
     border-radius: 6px;
-    padding: 10px;
-    margin: 8px 0;
+    margin: 8px 48px;
     
     & li {
         display:flex;
     }
+}
+
+.main-view__container-header {
+    display: flex;
+    background-color: $gray2;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
+
+    &--description {
+
+    }
+
+    &--amount {
+        
+    }
+
+    &--unit {
+        
+    }
+
+    &--energy {
+        
+    }
+}
+
+.main-view__summary-graph {
+    width: 60%;
+    height: 100px;
+    float: right;
+    border: 1px solid $gray;
+    border-radius: 6px;
+    margin: 8px 48px;
+}
+
+
+.main-view__summary-graph-header {
+    display: flex;
+    background-color: $gray2;
+    justify-content: space-around;
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
+}
+
+.main-view__energy-graph {
+    width: 30%;
+    height: 350px;
+    border: 1px solid $gray;
+    border-radius: 6px;
+    margin: 8px 20px;
+}
+
+
+.main-view__energy-graph-header {
+    display: flex;
+    background-color: $gray2;
+    justify-content: space-around;
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
+}
+
+.main-view__weight-graph {
+    width: 30%;
+    height: 350px;
+    border: 1px solid $gray;
+    border-radius: 6px;
+    margin: 8px 0 8px 20px;
+}
+
+.main-view__weight-graph-header {
+    display: flex;
+    background-color: $gray2;
+    justify-content: space-around;
+    padding: 8px;
+    border-radius: 6px 6px 0 0;
 }
