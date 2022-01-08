@@ -35,6 +35,7 @@ import { FoodLabelComponent } from './shared/ui/food-label/food-label.component'
 import { CategoryService } from './shared/services/fit-app/category/category.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -85,6 +86,7 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     MatDialogModule,
     MatSelectModule,
     MatInputModule,
+    NgxChartsModule
   ],
   entryComponents: [DialogWindowComponent],
   providers: [
