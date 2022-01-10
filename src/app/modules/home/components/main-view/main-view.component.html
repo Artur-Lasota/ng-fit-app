@@ -17,6 +17,20 @@
             [results]="single"
             (select)="onSelect($event)">
         </ngx-charts-pie-grid>
+        <div class="main-view__daily-macro-progress">
+            <div class="d-flex">
+                <p class="progress-label">Energy</p> <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+            </div>
+            <div class="d-flex">
+                <p class="progress-label">Protein</p> <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
+            </div>
+            <div class="d-flex">
+                <p class="progress-label">Net Carbs</p> <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+            </div>
+            <div class="d-flex">
+                <p class="progress-label">Fat</p> <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+            </div>
+        </div>
     </div>
 </div>
 <div class="main-view__energy-graph">

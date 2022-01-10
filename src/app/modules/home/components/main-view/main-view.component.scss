@@ -1,15 +1,31 @@
 @import "../../../../../assets/scss/constants.scss";
 
+:host {
+    ::ng-deep .mat-progress-bar {
+        height: 24px;
+        padding: 4px;
+    }
+}
+
 .main-view__container {
     width: 60%;
     height: 500px;
     float: right;
     border: 1px solid $gray;
     border-radius: 6px;
-    margin: 8px 48px;
+    margin: 0 48px;
     
     & li {
         display:flex;
+    }
+}
+
+.main-view__daily-macro-progress{
+    width: 400px;
+    padding: 12px 0;
+
+    .progress-label {
+        width: 100px;
     }
 }
 

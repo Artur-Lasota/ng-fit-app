@@ -16,7 +16,7 @@ export class MainViewComponent implements OnInit {
     public multi: any[] = [];
     public single: any[] = [];
     public view: [number, number] = [420, 350];
-    public viewPie: [number, number] = [400, 150];
+    public viewPie: [number, number] = [450, 150];
 
     // options
     public legend: boolean = true;
