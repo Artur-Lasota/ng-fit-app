@@ -10,14 +10,54 @@
     <div class="main-view__summary-graph-header">
         <div class="main-view__container-header--description">Energy summary</div>
     </div>
+    <div class="d-flex">
+        <ngx-charts-pie-grid
+            [view]="viewPie"
+            [scheme]="colorScheme"
+            [results]="single"
+            (select)="onSelect($event)">
+        </ngx-charts-pie-grid>
+    </div>
 </div>
 <div class="main-view__energy-graph">
     <div class="main-view__energy-graph-header">
         <div class="main-view__container-header--description">Energy History (kcal)</div>
     </div>
+    <div class="d-flex">
+        <ngx-charts-line-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [timeline]="timeline"
+            [results]="multi"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+        >
+        </ngx-charts-line-chart>
+    </div>
 </div>
 <div class="main-view__weight-graph">
     <div class="main-view__weight-graph-header">
         <div class="main-view__container-header--description">Weight Change 0.0 kg</div>
+    </div>
+    <div class="d-flex">
+        <ngx-charts-line-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [timeline]="timeline"
+            [results]="multi"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+        >
+        </ngx-charts-line-chart>
     </div>
 </div>
