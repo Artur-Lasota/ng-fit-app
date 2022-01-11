@@ -1,14 +1,14 @@
 <section class="settings-container">
-    <article class="settings__item">
+    <article class="settings__item col-md-12">
         <h1>Profil</h1>
-        <div class="d-flex settings__item-element">
+        <div class="d-flex settings__item-element col-md-6">
             <h3>Płeć: </h3> 
             <mat-select>
                 <mat-option value="option1">Kobieta</mat-option>
                 <mat-option value="option2">Mężczyzna</mat-option>
             </mat-select>
         </div>
-        <div class="d-flex settings__item-element">
+        <div class="d-flex settings__item-element col-md-6">
             <h3>Dzień urodzenia: </h3>
             <mat-select>
                 <mat-option *ngFor="let day of daysList" [value]="day">{{day}}</mat-option>
@@ -18,15 +18,19 @@
             </mat-select>
             <input matInput>
         </div>
-        <div class="d-flex settings__item-element">
+        <div class="d-flex col-md-6 settings__item-element">
             <h3>Wzrost</h3>
             <input matInput>
         </div>
-        <div class="d-flex settings__item-element">
+        <div class="d-flex col-md-6 settings__item-element--right">
+            <h3>Waga</h3>
+            <input matInput>
+        </div>
+        <div class="d-flex settings__item-element--right col-md-6">
             <h3>Poziom tkanki tłuszczowej</h3>
             <input matInput>
         </div>
-        <div class="d-flex settings__item-element">
+        <div class="d-flex settings__item-element--right col-md-6">
             <h3>BMI</h3>
             <p>{{BMICalc()}}</p>
         </div>

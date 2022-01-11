@@ -1,16 +1,19 @@
-.settings-container {
-    height: fit-content;
-}
-
 .settings__item {
     border: 1px solid gray;
     margin: 8px;
     padding: 8px;
     border-radius: 6px;
+    display: flex;
+    flex-direction: column;
 }
 
 .settings__item-element {
     margin: 8px 0;
+
+    &--right {
+        margin: 8px 0;
+        width: 50%;
+    }
 }
 
 :host {

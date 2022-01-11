@@ -2,8 +2,9 @@
 
 
 .footer-container {
-    align-self: flex-end;
-    margin-top: 60px;
+    flex-shrink: 0;
+    margin-top: 20px;
+
     &__footer-content {
         width: 100%;
         height: 70px;
