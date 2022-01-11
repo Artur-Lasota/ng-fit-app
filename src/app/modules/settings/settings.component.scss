@@ -1,6 +1,18 @@
 .settings-container {
-    height: 80vh;
+    height: fit-content;
 }
+
+.settings__item {
+    border: 1px solid gray;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.settings__item-element {
+    margin: 8px 0;
+}
+
 :host {
     ::ng-deep .mat-select {
         margin-left: 10px;
@@ -9,5 +21,9 @@
 
     .mat-select--large {
         width: 270px;
+    }
+
+    h3 {
+        width: 200px;
     }
 }
