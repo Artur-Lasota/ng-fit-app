@@ -1,4 +1,38 @@
 {
+    "auth": {
+        "created_at": "2020-01-08T14:27:59.122Z",
+        "email": "manchox931@gmail.com",
+        "email_verified": true,
+        "family_name": "Lasota",
+        "given_name": "Artur",
+        "identities": [
+            {
+                "provider": "google-oauth2",
+                "user_id": "102098300461804693878",
+                "connection": "google-oauth2",
+                "isSocial": true
+            }
+        ],
+        "locale": "pl",
+        "name": "Artur Lasota",
+        "nickname": "manchox931",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJxHv2oW741YD4Y5-PtcVPBX4f3Gtvc8wsvAszzx=s96-c",
+        "updated_at": "2022-01-12T12:54:48.951Z",
+        "user_id": "google-oauth2|102098300461804693878",
+        "last_ip": "185.13.235.197",
+        "last_login": "2022-01-12T12:54:48.951Z",
+        "logins_count": 45,
+        "blocked_for": [],
+        "guardian_authenticators": []
+    },
+    "userSettings": {
+        "userId": "102098300461804693878",
+        "birth": "1993-03-28T12:00:00.951Z",
+        "weight": 90,
+        "height": 185,
+        "fatLevel": 20,
+        "sex": "male"
+    },
     "users": [
         {
             "id": 1,

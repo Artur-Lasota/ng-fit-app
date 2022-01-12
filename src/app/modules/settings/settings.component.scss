@@ -3,17 +3,16 @@
     margin: 8px;
     padding: 8px;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
+
+    &--grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .settings__item-element {
     margin: 8px 0;
-
-    &--right {
-        margin: 8px 0;
-        width: 50%;
-    }
+    display: flex;
 }
 
 :host {
@@ -24,6 +23,10 @@
 
     .mat-select--large {
         width: 270px;
+    }
+
+    h1 {
+        grid-column: 1/2;
     }
 
     h3 {
