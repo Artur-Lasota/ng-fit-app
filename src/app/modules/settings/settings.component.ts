@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-settings',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 
 export class SettingsComponent {
 
+    public form!: FormGroup;
     public daysList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
     public monthsList: string[] = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
     public activitiesList: string[] = [
@@ -23,7 +25,23 @@ export class SettingsComponent {
     public height = 1.85;
     public age = 29;
 
-    constructor() {
+    constructor(private formBuilder: FormBuilder) {
+        this.createForm();
+    }
+
+    public createForm() {
+        this.form = this.formBuilder.group({
+            weight: [null, [Validators.required, Validators.min(1)]],
+            height: [null, [Validators.required, Validators.min(1)]],
+            gender: [null, [Validators.required]],
+            birth: [null],
+            fatLevel: [null],
+            activityLevel: [null],
+            weightGoal: [null],
+            weightLoseTempo: [null],
+            weightGoalDate: [null],
+            dailyDeficit: [null]
+        });
     }
 
     public BMICalc(): string {
@@ -54,5 +72,9 @@ export class SettingsComponent {
         //     default:
         //         console.log(`Sorry, we are out of ${expr}.`);
         // }
+    }
+
+    public save(): void {
+        console.log(this.form)
     }
 }
