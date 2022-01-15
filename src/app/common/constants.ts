@@ -2,6 +2,7 @@ export class Constants {
     public static api = {
         baseUrl: 'http://localhost:3000',
         category: '/category',
-        products: '/products'
+        products: '/products',
+        settings: '/userSettings'
     };
 }

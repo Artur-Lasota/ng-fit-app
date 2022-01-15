@@ -19,10 +19,8 @@ export class SearchProductComponent implements OnInit {
     constructor(private productsService: ProductsService, private categoryService: CategoryService, private cd: ChangeDetectorRef) {
     }
 
-    async ngOnInit(): Promise<void> {
-        await this.productsService.getProduct().then(
-            x => x.forEach(i => this.productsList.push(i))
-        );
+    public ngOnInit(): void {
+        this.getProduct();
         this.cd.detectChanges();
     }
 
@@ -34,6 +32,12 @@ export class SearchProductComponent implements OnInit {
     private async getProductCategory(id: number): Promise<void> {
         await this.categoryService.getCategory(id).then(
             x => x.forEach(i => this.productCategory = i));
+    }
+
+    private async getProduct(): Promise<void> { 
+        await this.productsService.getProduct().then(
+        x => x.forEach(i => this.productsList.push(i))
+    );
     }
 
 }

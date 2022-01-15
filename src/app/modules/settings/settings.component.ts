@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@auth0/auth0-angular';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { SettingsModel } from 'src/app/common/models/settings.model';
+import { UserSettingsService } from 'src/app/shared/services';
 
 @Component({
     selector: 'app-settings',
@@ -7,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./settings.component.scss']
 })
 
+@UntilDestroy()
 export class SettingsComponent {
 
     public form!: FormGroup;
@@ -21,40 +26,69 @@ export class SettingsComponent {
 
     ];
     public gender = true;
-    public weight = 92;
-    public height = 1.85;
     public age = 29;
+    public BMI = '0';
+    private userInfo!: SettingsModel;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private auth: AuthService, private settingsService: UserSettingsService) {
         this.createForm();
+        this.settingsService.getSettings().then( x => this.userInfo = x);
+        setTimeout(() => {
+            this.auth.user$.pipe(untilDestroyed(this)).subscribe( userInfo => {
+                this.createForm(userInfo);
+                this.BMI = this.BMICalc();
+                console.log(userInfo)
+            });
+        }, 200);
     }
 
-    public createForm() {
-        this.form = this.formBuilder.group({
-            weight: [null, [Validators.required, Validators.min(1)]],
-            height: [null, [Validators.required, Validators.min(1)]],
-            gender: [null, [Validators.required]],
-            birth: [null],
-            fatLevel: [null],
-            activityLevel: [null],
-            weightGoal: [null],
-            weightLoseTempo: [null],
-            weightGoalDate: [null],
-            dailyDeficit: [null]
-        });
+    public createForm(userInfoAuth?: any): void {
+        if (userInfoAuth?.sub && userInfoAuth?.sub === this.userInfo.userId) {
+            this.form = this.formBuilder.group({
+                weight: [this.userInfo.weight, [Validators.required, Validators.min(1)]],
+                height: [this.userInfo.height, [Validators.required, Validators.min(1)]],
+                gender: [this.userInfo.gender, [Validators.required]],
+                birth: [this.userInfo.birth],
+                fatLevel: [this.userInfo.fatLevel],
+                activityLevel: [null],
+                weightGoal: [null],
+                weightLoseTempo: [null],
+                weightGoalDate: [null],
+                dailyDeficit: [null]
+            });
+        } else {
+            this.form = this.formBuilder.group({
+                weight: [null, [Validators.required, Validators.min(1)]],
+                height: [null, [Validators.required, Validators.min(1)]],
+                gender: [null, [Validators.required]],
+                birth: [null],
+                fatLevel: [null],
+                activityLevel: [null],
+                weightGoal: [null],
+                weightLoseTempo: [null],
+                weightGoalDate: [null],
+                dailyDeficit: [null]
+            });
+        }
     }
 
     public BMICalc(): string {
-        let BMI = (this.weight / (this.height * this.height)).toFixed(0);
-        return BMI;
+            const weight: number = this.form.get('weight')?.value;
+            const height: number = this.form.get('height')?.value;
+            if (weight && height) {
+                const BMI = ((weight / (height * height)) * 10000).toFixed(0);
+                return BMI;
+            } else { return '0'; }
     }
 
     public BMRCalc(): string {
         let BMR;
+        const weight = this.form.get('weight')?.value;
+        const height = this.form.get('height')?.value;
         if (this.gender) {
-            BMR = (10 * this.weight + 6.25 * this.height - 5 * this.age + 5).toFixed(0);
+            BMR = (10 * weight + 6.25 * height - 5 * this.age + 5).toFixed(0);
         } else {
-            BMR = (10 * this.weight + 6.25 * this.height - 5 * this.age - 161).toFixed(0);
+            BMR = (10 * weight + 6.25 * height - 5 * this.age - 161).toFixed(0);
         }
         return BMR;
     }

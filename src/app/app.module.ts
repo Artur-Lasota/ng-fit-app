@@ -39,6 +39,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BarcodeScannerLivestreamModule } from "ngx-barcode-scanner";
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -92,7 +93,8 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
     NgxChartsModule,
     MatProgressBarModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BarcodeScannerLivestreamModule
   ],
   entryComponents: [DialogWindowComponent],
   providers: [
