@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SettingsModel } from 'src/app/common/models/settings.model';
 import { UserSettingsService } from 'src/app/shared/services';
+import { take } from 'rxjs/operators';
 
 @Component({
     selector: 'app-settings',
@@ -15,29 +16,33 @@ import { UserSettingsService } from 'src/app/shared/services';
 export class SettingsComponent {
 
     public form!: FormGroup;
-    public daysList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-    public monthsList: string[] = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+    public daysList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+        16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    public monthsList: string[] = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec',
+    'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
     public activitiesList: string[] = [
-        "Brak",
-        "Stacjonarna (BMR x 0.2)",
-        "Lekka aktywność (BMR x 0.375)",
-        "Umiarkowana aktywność (BMR x 0.5)",
-        "Wysoka aktywność (BMR x 0.9)"
+        'Brak',
+        'Stacjonarna (BMR x 0.2)',
+        'Lekka aktywność (BMR x 0.375)',
+        'Umiarkowana aktywność (BMR x 0.5)',
+        'Wysoka aktywność (BMR x 0.9)'
 
     ];
     public gender = true;
     public age = 29;
     public BMI = '0';
+    public activityCalories = '0 kcal';
     private userInfo!: SettingsModel;
 
-    constructor(private formBuilder: FormBuilder, private auth: AuthService, private settingsService: UserSettingsService) {
+    constructor(private formBuilder: FormBuilder, private auth: AuthService, private settingsService: UserSettingsService,
+                private cd: ChangeDetectorRef) {
         this.createForm();
         this.settingsService.getSettings().then( x => this.userInfo = x);
         setTimeout(() => {
             this.auth.user$.pipe(untilDestroyed(this)).subscribe( userInfo => {
                 this.createForm(userInfo);
                 this.BMI = this.BMICalc();
-                console.log(userInfo)
+                console.log(this.userInfo);
             });
         }, 200);
     }
@@ -48,7 +53,9 @@ export class SettingsComponent {
                 weight: [this.userInfo.weight, [Validators.required, Validators.min(1)]],
                 height: [this.userInfo.height, [Validators.required, Validators.min(1)]],
                 gender: [this.userInfo.gender, [Validators.required]],
-                birth: [this.userInfo.birth],
+                dayOfBirth: [this.getDayOfBirth()],
+                monthOfBirth: [this.getMonthOfBirth()],
+                yearOfBirth: [this.getYearOfBirth()],
                 fatLevel: [this.userInfo.fatLevel],
                 activityLevel: [null],
                 weightGoal: [null],
@@ -61,7 +68,9 @@ export class SettingsComponent {
                 weight: [null, [Validators.required, Validators.min(1)]],
                 height: [null, [Validators.required, Validators.min(1)]],
                 gender: [null, [Validators.required]],
-                birth: [null],
+                dayOfBirth: [null],
+                monthOfBirth: [null],
+                yearOfBirth: [null],
                 fatLevel: [null],
                 activityLevel: [null],
                 weightGoal: [null],
@@ -93,22 +102,41 @@ export class SettingsComponent {
         return BMR;
     }
 
-    public activityCalc(): void {
-        // switch () {
-        //     case 'Oranges':
-        //         console.log('Oranges are $0.59 a pound.');
-        //         break;
-        //     case 'Mangoes':
-        //     case 'Papayas':
-        //         console.log('Mangoes and papayas are $2.79 a pound.');
-        //       // expected output: "Mangoes and papayas are $2.79 a pound."
-        //     break;
-        //     default:
-        //         console.log(`Sorry, we are out of ${expr}.`);
-        // }
+    public activityCalc($event: any): void {
+        switch ($event) {
+                case 'Brak':
+                    this.activityCalories = '0 kcal';
+                    break;
+                case 'Stacjonarna (BMR x 0.2)':
+                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.2).toFixed(0) } kcal`;
+                    break;
+                case 'Lekka aktywność (BMR x 0.375)':
+                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.375).toFixed(0) } kcal`;
+                    break;
+                case 'Umiarkowana aktywność (BMR x 0.5)':
+                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.5).toFixed(0) } kcal`;
+                    break;
+                case 'Wysoka aktywność (BMR x 0.9)':
+                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.9).toFixed(0) } kcal`;
+                    break;
+                default:
+                    this.activityCalories = '0 kcal';
+            }
     }
 
     public save(): void {
-        console.log(this.form)
+        console.log(this.form);
+    }
+
+    private getDayOfBirth(): number {
+        return 4;
+    }
+
+    private getMonthOfBirth(): string {
+        return 'Styczeń';
+    }
+
+    private getYearOfBirth(): string {
+        return '1993';
     }
 }

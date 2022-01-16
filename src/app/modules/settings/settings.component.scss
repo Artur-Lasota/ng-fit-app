@@ -1,3 +1,5 @@
+@import "../../../assets/scss/constants.scss";
+
 .settings__item {
     border: 1px solid gray;
     margin: 8px;
@@ -13,12 +15,20 @@
 .settings__item-element {
     margin: 8px 0;
     display: flex;
+    align-items: baseline;
+    height: 40px;
 }
 
 :host {
     ::ng-deep .mat-select {
-        margin-left: 10px;
+        margin-right: 10px;
         width: 100px;
+        border: 1px solid $gray;
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 40px;
     }
 
     .mat-select--large {
@@ -31,5 +41,10 @@
 
     h3 {
         width: 200px;
+        height: 40px;
+    }
+
+    input {
+        height: 40px;
     }
 }
