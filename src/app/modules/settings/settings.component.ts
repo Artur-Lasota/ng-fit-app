@@ -108,16 +108,16 @@ export class SettingsComponent {
                     this.activityCalories = '0 kcal';
                     break;
                 case 'Stacjonarna (BMR x 0.2)':
-                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.2).toFixed(0) } kcal`;
+                    this.activityCalories = `${(parseInt(this.BMRCalc(), 0) * 0.2).toFixed(0)} kcal`;
                     break;
                 case 'Lekka aktywność (BMR x 0.375)':
-                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.375).toFixed(0) } kcal`;
+                    this.activityCalories = `${(parseInt(this.BMRCalc(), 0) * 0.375).toFixed(0)} kcal`;
                     break;
                 case 'Umiarkowana aktywność (BMR x 0.5)':
-                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.5).toFixed(0) } kcal`;
+                    this.activityCalories = `${(parseInt(this.BMRCalc(), 0) * 0.5).toFixed(0)} kcal`;
                     break;
                 case 'Wysoka aktywność (BMR x 0.9)':
-                    this.activityCalories = `${ (parseInt(this.BMRCalc()) * 0.9).toFixed(0) } kcal`;
+                    this.activityCalories = `${(parseInt(this.BMRCalc(), 0) * 0.9).toFixed(0)} kcal`;
                     break;
                 default:
                     this.activityCalories = '0 kcal';
