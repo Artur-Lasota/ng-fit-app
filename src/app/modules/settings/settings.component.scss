@@ -19,6 +19,15 @@
     height: 40px;
 }
 
+.BMR__summary {
+    background-color: $lightblue;
+    padding: 16px;
+    border-radius: 4px;
+    color: $white;
+    text-align: center;
+    margin-top: 16px;
+}
+
 :host {
     ::ng-deep .mat-select {
         margin-right: 10px;
