@@ -57,12 +57,24 @@
         <article class="settings__item">
             <h1>Cel wagowy do osiągnięcia</h1>
             <div class="settings__item--grid">
-                <p>Docelowa waga</p> <input matInput formControlName="weightGoal">
-                <p>Tempo spadku wagi</p> <input matInput formControlName="weightLoseTempo">
-                <p>Data osiągnięcia wagi</p> <input matInput formControlName="weightGoalDate">
-                <p>Dzienny deficyt energetyczny: 374 kcal</p> <input matInput formControlName="dailyDeficit">
+                <div class="settings__item-element">
+                    <h3>Docelowa waga</h3> 
+                    <input matInput formControlName="weightGoal">
+                </div>
+                <div class="settings__item-element">
+                    <h3>Tempo spadku wagi</h3> 
+                    <input matInput formControlName="weightLoseTempo">
+                </div>
+                <div class="settings__item-element">
+                    <h3>Data osiągnięcia wagi</h3> 
+                    <input matInput formControlName="weightGoalDate">
+                </div>
+                <div class="settings__item-element">
+                    <h3>Dzienny deficyt energetyczny</h3> 
+                    <input matInput formControlName="dailyDeficit">
+                </div>
             </div>
         </article>
     </form>
-    <app-button [label]="'Save'" [color]="'lightblue'" (click)="save()"></app-button>
+    <app-button [label]="'Zapisz'" [color]="'lightblue'" (click)="save()"></app-button>
 </section>
