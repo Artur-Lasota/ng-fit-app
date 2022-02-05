@@ -1,3 +1,13 @@
-<p>
-  barcode-scan works!
-</p>
+<section>
+  <app-button [label]="'Zeskanuj produkt'" [color]="'lightblue'" (click)="openScan()"></app-button>
+  <div>
+    <barcode-scanner-livestream
+    type="ean"
+    (valueChanges)="onValueChanges($event)"
+    (started)="(onStarted)"
+    ></barcode-scanner-livestream>
+    <div [hidden]="!barcodeValue">
+      {{ barcodeValue }}
+    </div>
+  </div>
+</section>

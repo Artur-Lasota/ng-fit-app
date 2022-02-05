@@ -8,8 +8,11 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AuthButtonLogicComponent implements OnInit {
 
+  public isAuthenticated = false;
+
   constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe( x => this.isAuthenticated = x);
   }
 }

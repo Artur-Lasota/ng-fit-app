@@ -1,7 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BarcodeScanComponent } from './barcode-scan.component';
 
@@ -9,7 +7,7 @@ describe('BarcodeScanComponent', () => {
   let component: BarcodeScanComponent;
   let fixture: ComponentFixture<BarcodeScanComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ BarcodeScanComponent ]
     })

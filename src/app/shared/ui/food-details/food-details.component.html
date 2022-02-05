@@ -1,5 +1,10 @@
 <section class="food-details-container">
-    <p *ngIf="!selectedProduct" class="food-details__empty">Get started with a new food search!</p>
+    <div *ngIf="!selectedProduct">
+        <p class="food-details__empty">Get started with a new food search!</p>
+        <div class="food-details__barcode-scan">
+            <app-barcode-scan></app-barcode-scan>
+        </div>
+    </div>
     <div *ngIf="selectedProduct && category" class="food-details__label col-12">
         <div class="col-12 food-details__header">{{selectedProduct.name}}</div>
         <div class="col-7 food-details__product-details">
@@ -7,6 +12,7 @@
             <p>Notes:</p>
             <p>Serving Sizes:</p>
             <p>Nutrients in:</p>
+            <app-barcode-scan></app-barcode-scan>
         </div>
         <app-food-label class="col-5" [selectedProduct]="selectedProduct"></app-food-label>
     </div>

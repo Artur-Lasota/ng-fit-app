@@ -99,7 +99,7 @@ export class SettingsComponent {
         } else {
             BMR = (10 * weight + 6.25 * height - 5 * this.age - 161).toFixed(0);
         }
-        return BMR;
+        return parseInt(BMR) < 1 ? '0' : BMR;
     }
 
     public activityCalc($event: any): void {
