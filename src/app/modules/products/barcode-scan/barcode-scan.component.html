@@ -1,5 +1,6 @@
 <section>
-  <app-button [label]="'Zeskanuj produkt'" [color]="'lightblue'" (click)="openScan()"></app-button>
+  <app-button *ngIf="!isScanningOpen" [label]="'Zeskanuj produkt'" [color]="'lightblue'" (click)="openScan()"></app-button>
+  <app-button *ngIf="isScanningOpen" [label]="'Zakończ skanowanie'" [color]="'lightblue'" (click)="openScan()"></app-button>
   <div>
     <barcode-scanner-livestream
     type="ean"
