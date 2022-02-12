@@ -1,14 +1,14 @@
 <div class="main-view__container">
     <div class="main-view__container-header">
-        <div class="main-view__container-header--description">Description</div>
-        <div class="main-view__container-header--amount">Amount</div>
-        <div class="main-view__container-header--unit">Unit</div>
-        <div class="main-view__container-header--energy">Energy (kcal)</div>
+        <div class="main-view__container-header--description">Nazwa</div>
+        <div class="main-view__container-header--amount">Ilość</div>
+        <div class="main-view__container-header--unit">Jednostki</div>
+        <div class="main-view__container-header--energy">Wartość kaloryczna (kcal)</div>
     </div>
 </div>
 <div class="main-view__summary-graph"> 
     <div class="main-view__summary-graph-header">
-        <div class="main-view__container-header--description">Energy summary</div>
+        <div class="main-view__container-header--description">Podsumowania wartości odżywczych</div>
     </div>
     <div class="d-flex">
         <ngx-charts-pie-grid
@@ -19,23 +19,23 @@
         </ngx-charts-pie-grid>
         <div class="main-view__daily-macro-progress">
             <div class="d-flex">
-                <p class="progress-label">Energy</p> <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                <p class="progress-label">Kalorie</p> <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
             </div>
             <div class="d-flex">
-                <p class="progress-label">Protein</p> <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
+                <p class="progress-label">Białko</p> <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
             </div>
             <div class="d-flex">
-                <p class="progress-label">Net Carbs</p> <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+                <p class="progress-label">Węglowodany</p> <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
             </div>
             <div class="d-flex">
-                <p class="progress-label">Fat</p> <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+                <p class="progress-label">Tłuszcze</p> <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
             </div>
         </div>
     </div>
 </div>
 <div class="main-view__energy-graph">
     <div class="main-view__energy-graph-header">
-        <div class="main-view__container-header--description">Energy History (kcal)</div>
+        <div class="main-view__container-header--description">Wykres kaloryczny (kcal)</div>
     </div>
     <div class="d-flex">
         <ngx-charts-line-chart
@@ -56,7 +56,7 @@
 </div>
 <div class="main-view__weight-graph">
     <div class="main-view__weight-graph-header">
-        <div class="main-view__container-header--description">Weight Change 0.0 kg</div>
+        <div class="main-view__container-header--description">Zmiana wagi 0.0 kg</div>
     </div>
     <div class="d-flex">
         <ngx-charts-line-chart

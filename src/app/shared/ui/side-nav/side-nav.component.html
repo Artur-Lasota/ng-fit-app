@@ -1,7 +1,7 @@
 <section class="side-nav-container">
     <div class="side-nav-container__header">
-        <app-button mat-button [label]="'Add recipe'" [color]="'flat-red'" (click)="openDialog()"></app-button>
-        <app-button [label]="'Import recipe'" [color]="'flat-red'"></app-button>
+        <app-button mat-button [label]="'Dodaj przepis'" [color]="'flat-red'" (click)="openDialog()"></app-button>
+        <app-button [label]="'Importuj przepis'" [color]="'flat-red'"></app-button>
     </div>
     <div class="side-nav-container__list">
         <li *ngFor="let item of items" class="list__item" (click)="selectItem(item)">
