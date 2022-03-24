@@ -21,4 +21,5 @@ export class ProductModel {
     public measures!: MeasuresModel[];
     public simpleMeasures!: SimpleMeasuresModel[];
     public redirect!: any[];
+    public ean?: string;
 }

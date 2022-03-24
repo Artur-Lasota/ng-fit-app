@@ -3,6 +3,7 @@ export class Constants {
         baseUrl: 'http://localhost:3000',
         category: '/category',
         products: '/products',
-        settings: '/userSettings'
+        settings: '/userSettings',
+        userProduct: '/userProducts'
     };
 }

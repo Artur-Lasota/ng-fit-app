@@ -1,5 +1,8 @@
 <section class="search-product-container">
     <app-side-nav [items]="productsList" (selectedItem)="selectedItem($event)"></app-side-nav>
-    <app-food-details class="search-product-container__food-details" [selectedProduct]="selectedProduct" [category]="productCategory">
+    <app-food-details class="search-product-container__food-details"
+        [selectedProduct]="selectedProduct" 
+        [category]="productCategory"
+        (selectedProd)="selectedItem($event)">
     </app-food-details>
 </section>

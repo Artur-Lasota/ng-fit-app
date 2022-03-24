@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ScaleType } from '@swimlane/ngx-charts';
 import { ProductModel } from 'src/app/common/models/product.model';
+import { UserProductModel } from 'src/app/common/models/user-product.model';
+import { UserDailyProductService } from 'src/app/shared/services/fit-app/user-daily-product.service';
 import { ProductsService } from '../../../../shared/services/products/products.service';
 import { multi } from './data';
 import { single } from './single';
@@ -12,22 +14,23 @@ import { single } from './single';
 
 export class MainViewComponent implements OnInit {
 
-    public productsList: ProductModel[] = [];  
+    public productsList: ProductModel[] = [];
+    public userProductsList: UserProductModel[] = [];
     public multi: any[] = [];
     public single: any[] = [];
     public view: [number, number] = [420, 350];
     public viewPie: [number, number] = [450, 150];
 
     // options
-    public legend: boolean = true;
-    public showLabels: boolean = true;
-    public animations: boolean = true;
-    public xAxis: boolean = true;
-    public yAxis: boolean = true;
-    public showYAxisLabel: boolean = true;
-    public showXAxisLabel: boolean = true;
-    public timeline: boolean = true;
-    public gradient: boolean = true;
+    public legend = true;
+    public showLabels = true;
+    public animations = true;
+    public xAxis = true;
+    public yAxis = true;
+    public showYAxisLabel = true;
+    public showXAxisLabel = true;
+    public timeline = true;
+    public gradient = true;
 
     public colorScheme = {
         domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'] ,
@@ -36,7 +39,7 @@ export class MainViewComponent implements OnInit {
         group: ScaleType.Linear
     };
 
-    constructor(private productsService: ProductsService) {
+    constructor(private productsService: ProductsService, private userProductService: UserDailyProductService) {
         Object.assign(this, { multi });
         Object.assign(this, { single });
     }
@@ -46,7 +49,19 @@ export class MainViewComponent implements OnInit {
             x => x.forEach(i => this.productsList.push(i))
         );
 
-
+        await this.userProductService.getUserProducts().then(
+            (x) => {
+                this.userProductsList = x.map( (i) => {
+                    return {
+                        userId: i.userId,
+                        product: i.product,
+                        count: i.count,
+                        selectedMeasure: i.selectedMeasure,
+                        calories: this.calcCalories(i.count, i.selectedMeasure.energy)
+                    };
+                });
+            }
+        );
     }
 
     public onSelect(data: any): void {
@@ -59,5 +74,9 @@ export class MainViewComponent implements OnInit {
 
     onDeactivate(data: any): void {
         console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    }
+
+    private calcCalories(count: number, energy?: number): number{
+        return energy ? count * energy : 0;
     }
 }

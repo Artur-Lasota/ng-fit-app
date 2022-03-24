@@ -37,19 +37,43 @@
     border-radius: 6px 6px 0 0;
 
     &--description {
-
+        min-width: 160px;
     }
 
     &--amount {
-        
+        min-width: 160px;
     }
 
     &--unit {
-        
+        min-width: 160px;
     }
 
     &--energy {
-        
+        min-width: 160px;
+    }
+}
+
+.main-view__product {
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    padding: 8px;
+    display: flex;
+
+    
+    &--description {
+        min-width: 160px;
+    }
+
+    &--amount {
+        min-width: 160px;
+    }
+
+    &--unit {
+        min-width: 160px;
+    }
+
+    &--energy {
+        min-width: 160px;
     }
 }
 

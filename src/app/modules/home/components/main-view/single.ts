@@ -1,10 +1,10 @@
-export var single = [
+export const single = [
     {
-        "name": "Consumed",
-        "value": 0
+        name: 'Consumed',
+        value: 0
     },
     {
-        "name": "Burned",
-        "value": 2364
+        name: 'Burned',
+        value: 2364
     }
 ];

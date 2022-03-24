@@ -1,27 +1,27 @@
-export var multi = [
+export const multi = [
     {
-        "name": "Germany",
-        "series": [
+        name: '',
+        series: [
             {
-                "name": "09.01",
-                "value": 85
+                name: '09.01',
+                value: 85
             },
             {
-                "name": "10.01",
-                "value": 85
+                name: '10.01',
+                value: 85
             },
             {
-                "name": "11.01",
-                "value": 84
+                name: '11.01',
+                value: 84
             }
         ]
     },
     {
-        "name": "",
-        "series": [
+        name: '',
+        series: [
             {
-                "name": "09.01",
-                "value": 100
+                name: '09.01',
+                value: 100
             }
         ]
     }]

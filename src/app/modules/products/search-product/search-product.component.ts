@@ -25,6 +25,7 @@ export class SearchProductComponent implements OnInit {
     }
 
     public selectedItem(item: ProductModel): void {
+        console.log(item)
         this.selectedProduct = item;
         this.getProductCategory(item.categoryId);
     }
@@ -34,10 +35,8 @@ export class SearchProductComponent implements OnInit {
             x => x.forEach(i => this.productCategory = i));
     }
 
-    private async getProduct(): Promise<void> { 
+    private async getProduct(): Promise<void> {
         await this.productsService.getProduct().then(
-        x => x.forEach(i => this.productsList.push(i))
-    );
+        x => x.forEach(i => this.productsList.push(i)));
     }
-
 }

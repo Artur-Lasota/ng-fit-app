@@ -5,6 +5,14 @@
         <div class="main-view__container-header--unit">Jednostki</div>
         <div class="main-view__container-header--energy">Wartość kaloryczna (kcal)</div>
     </div>
+    <div *ngFor="let userProd of userProductsList">
+        <div class="main-view__product">
+            <div class="main-view__product--description">{{userProd.product.name}}</div>
+            <div class="main-view__product--amount">{{userProd.count}}</div>
+            <div class="main-view__product--unit">{{userProd.selectedMeasure.weight}} {{userProd.selectedMeasure.name}}</div>
+            <div class="main-view__product--energy">{{userProd.calories}}</div>
+        </div>
+    </div>
 </div>
 <div class="main-view__summary-graph"> 
     <div class="main-view__summary-graph-header">

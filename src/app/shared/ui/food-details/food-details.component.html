@@ -2,7 +2,7 @@
     <div *ngIf="!selectedProduct">
         <p class="food-details__empty">Wyszukaj produkty!</p>
         <div class="food-details__barcode-scan">
-            <app-barcode-scan></app-barcode-scan>
+            <app-barcode-scan (productOutput)="selectedProdCode($event)"></app-barcode-scan>
         </div>
     </div>
     <div *ngIf="selectedProduct && category" class="food-details__label col-12">
