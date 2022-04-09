@@ -4,7 +4,6 @@ import { AuthService } from '@auth0/auth0-angular';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SettingsModel } from 'src/app/common/models/settings.model';
 import { UserSettingsService } from 'src/app/shared/services';
-import { take } from 'rxjs/operators';
 
 @Component({
     selector: 'app-settings',
@@ -99,7 +98,7 @@ export class SettingsComponent {
         } else {
             BMR = (10 * weight + 6.25 * height - 5 * this.age - 161).toFixed(0);
         }
-        return parseInt(BMR) < 1 ? '0' : BMR;
+        return Number(BMR) < 1 ? '0' : BMR;
     }
 
     public activityCalc($event: any): void {
@@ -125,18 +124,43 @@ export class SettingsComponent {
     }
 
     public save(): void {
-        console.log(this.form);
+        this.form.updateValueAndValidity();
+        if (this.form.valid) {
+            this.settingsService.postSettings(this.mapForm());
+        }
+    }
+
+    private mapForm(): SettingsModel {
+        return {
+            userId: this.userInfo.userId,
+            birth: new Date(this.form.get('yearOfBirth')?.value, this.getMonthIndex(),
+                this.form.get('dayOfBirth')?.value, 12),
+            weight: this.form.get('weight')?.value,
+            height: this.form.get('height')?.value,
+            fatLevel: this.form.get('fatLevel')?.value,
+            gender: this.form.get('gender')?.value,
+        };
     }
 
     private getDayOfBirth(): number {
-        return 4;
+        const date: Date = new Date(this.userInfo.birth);
+        return date.getDate();
     }
 
     private getMonthOfBirth(): string {
-        return 'Styczeń';
+        const date: Date = new Date(this.userInfo.birth);
+        return this.monthsList[date.getMonth()];
     }
 
-    private getYearOfBirth(): string {
-        return '1993';
+    private getYearOfBirth(): number {
+        const date: Date = new Date(this.userInfo.birth);
+        return date.getFullYear();
     }
+
+    private getMonthIndex(): number {
+        return this.monthsList.findIndex( month => {
+            return month === this.form.get('monthOfBirth')?.value;
+        });
+    }
+
 }

@@ -16,4 +16,8 @@ export class UserSettingsService extends FitAppService {
   public async getSettings(): Promise<SettingsModel> {
       return await this.get<SettingsModel>(`${Constants.api.settings}`);
   }
+
+  public async postSettings(settings: SettingsModel): Promise<SettingsModel> {
+      return await this.post<SettingsModel>(`${Constants.api.settings}`, settings);
+  }
 }
