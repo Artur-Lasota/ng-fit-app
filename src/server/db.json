@@ -1,11 +1,14 @@
 {
   "userSettings": {
     "userId": "google-oauth2|102098300461804693878",
-    "birth": "1993-06-05T10:00:00.000Z",
+    "birth": "1990-07-03T10:00:00.000Z",
     "weight": "48",
     "height": "157",
     "fatLevel": "12",
-    "gender": "female"
+    "gender": "female",
+    "activityLevel": 1,
+    "weightGoal": "45",
+    "dailyDeficit": "750kcal"
   },
   "userProducts": [
     {

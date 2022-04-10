@@ -4,6 +4,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SettingsModel } from 'src/app/common/models/settings.model';
 import { UserSettingsService } from 'src/app/shared/services';
+import dayjs from 'dayjs';
 
 @Component({
     selector: 'app-settings',
@@ -27,6 +28,13 @@ export class SettingsComponent {
         'Wysoka aktywność (BMR x 0.9)'
 
     ];
+    public deficitList: string[] = [
+        '250kcal',
+        '500kcal',
+        '750kcal',
+        '1000kcal'
+
+    ];
     public gender = true;
     public age = 29;
     public BMI = '0';
@@ -41,7 +49,10 @@ export class SettingsComponent {
             this.auth.user$.pipe(untilDestroyed(this)).subscribe( userInfo => {
                 this.createForm(userInfo);
                 this.BMI = this.BMICalc();
-                console.log(this.userInfo);
+                if (userInfo?.sub && userInfo?.sub === this.userInfo.userId) {
+                    this.calcWeightGoal();
+                    this.form.get('weightGoal')?.valueChanges.pipe(untilDestroyed(this)).subscribe(() => this.calcWeightGoal());
+                }
             });
         }, 200);
     }
@@ -56,11 +67,11 @@ export class SettingsComponent {
                 monthOfBirth: [this.getMonthOfBirth()],
                 yearOfBirth: [this.getYearOfBirth()],
                 fatLevel: [this.userInfo.fatLevel],
-                activityLevel: [null],
-                weightGoal: [null],
+                activityLevel: [this.activitiesList[this.userInfo.activityLevel]],
+                weightGoal: [this.userInfo.weightGoal],
                 weightLoseTempo: [null],
                 weightGoalDate: [null],
-                dailyDeficit: [null]
+                dailyDeficit: [this.userInfo.dailyDeficit]
             });
         } else {
             this.form = this.formBuilder.group({
@@ -123,10 +134,36 @@ export class SettingsComponent {
             }
     }
 
+    public calcWeightGoal(): void {
+        const dailyDeficit = this.convertDeficit(this.form.get('dailyDeficit')?.value);
+        const weightGoal = Number(this.form.get('weightGoal')?.value);
+        const weight = Number(this.form.get('weight')?.value);
+        const tempo = Math.abs(Number(((weight - weightGoal) / dailyDeficit).toFixed(2)));
+        const today = new Date();
+        const goalDate = dayjs(today.setDate(today.getDate() + tempo * 7)).format('DD/MM/YYYY');
+        this.form.get('weightLoseTempo')?.setValue(`${tempo} tygodni`);
+        this.form.get('weightGoalDate')?.setValue(goalDate);
+    }
+
     public save(): void {
         this.form.updateValueAndValidity();
         if (this.form.valid) {
             this.settingsService.postSettings(this.mapForm());
+        }
+    }
+
+    private convertDeficit(deficit: string): number {
+        switch (deficit) {
+            case '250kcal':
+                return 0.25;
+            case '500kcal':
+                return 0.5;
+            case '750kcal':
+                return 0.75;
+            case '1000kcal':
+                return 1;
+            default:
+                return 0;
         }
     }
 
@@ -139,6 +176,9 @@ export class SettingsComponent {
             height: this.form.get('height')?.value,
             fatLevel: this.form.get('fatLevel')?.value,
             gender: this.form.get('gender')?.value,
+            activityLevel: this.getActivityIndex(),
+            weightGoal: this.form.get('weightGoal')?.value,
+            dailyDeficit: this.form.get('dailyDeficit')?.value
         };
     }
 
@@ -163,4 +203,9 @@ export class SettingsComponent {
         });
     }
 
+    private getActivityIndex(): number {
+        return this.activitiesList.findIndex( activity => {
+            return activity === this.form.get('activityLevel')?.value;
+        });
+    }
 }

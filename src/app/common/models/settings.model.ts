@@ -5,4 +5,7 @@ export class SettingsModel {
     public height!: number;
     public fatLevel!: number;
     public gender!: string;
+    public activityLevel!: number;
+    public weightGoal!: number;
+    public dailyDeficit!: number;
 }
