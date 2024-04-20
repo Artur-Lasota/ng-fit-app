@@ -49,62 +49,62 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    FooterComponent,
-    HomeComponent,
-    LoginComponent,
-    LogoutComponent,
-    AuthButtonLogicComponent,
-    MainViewComponent,
-    ProductsContainerComponent,
-    CustomProductComponent,
-    CustomRecipeComponent,
-    HelpContainerComponent,
-    SettingsComponent,
-    HelpTileComponent,
-    ButtonComponent,
-    ProductsNavigationComponent,
-    SearchProductComponent,
-    SideNavComponent,
-    FoodDetailsComponent,
-    DialogWindowComponent,
-    FoodLabelComponent,
-    BarcodeScanComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-    }
-    }),
-    AppRoutingModule,
-    AuthModule.forRoot({
-      ...env.auth,
-    }),
-    MatSliderModule,
-    HttpClientModule,
-    MatDialogModule,
-    MatSelectModule,
-    MatInputModule,
-    NgxChartsModule,
-    MatProgressBarModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BarcodeScannerLivestreamModule
-  ],
-  entryComponents: [DialogWindowComponent],
-  providers: [
-    FitAppService,
-    CustomHttpParamEncoder,
-    ProductsService,
-    CategoryService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+        FooterComponent,
+        HomeComponent,
+        LoginComponent,
+        LogoutComponent,
+        AuthButtonLogicComponent,
+        MainViewComponent,
+        ProductsContainerComponent,
+        CustomProductComponent,
+        CustomRecipeComponent,
+        HelpContainerComponent,
+        SettingsComponent,
+        HelpTileComponent,
+        ButtonComponent,
+        ProductsNavigationComponent,
+        SearchProductComponent,
+        SideNavComponent,
+        FoodDetailsComponent,
+        DialogWindowComponent,
+        FoodLabelComponent,
+        BarcodeScanComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+        AppRoutingModule,
+        AuthModule.forRoot({
+            ...env.auth,
+        }),
+        MatSliderModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatSelectModule,
+        MatInputModule,
+        NgxChartsModule,
+        MatProgressBarModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BarcodeScannerLivestreamModule
+    ],
+    providers: [
+        FitAppService,
+        CustomHttpParamEncoder,
+        ProductsService,
+        CategoryService,
+        { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

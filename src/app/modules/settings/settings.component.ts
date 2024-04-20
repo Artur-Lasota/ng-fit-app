@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SettingsModel } from 'src/app/common/models/settings.model';
@@ -15,7 +15,7 @@ import dayjs from 'dayjs';
 @UntilDestroy()
 export class SettingsComponent {
 
-    public form!: FormGroup;
+    public form!: UntypedFormGroup;
     public daysList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
         16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
     public monthsList: string[] = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec',
@@ -41,7 +41,7 @@ export class SettingsComponent {
     public activityCalories = '0 kcal';
     private userInfo!: SettingsModel;
 
-    constructor(private formBuilder: FormBuilder, private auth: AuthService, private settingsService: UserSettingsService,
+    constructor(private formBuilder: UntypedFormBuilder, private auth: AuthService, private settingsService: UserSettingsService,
                 private cd: ChangeDetectorRef) {
         this.createForm();
         this.settingsService.getSettings().then( x => this.userInfo = x);
