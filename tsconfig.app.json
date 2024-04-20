@@ -5,7 +5,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "outDir": "./out-tsc/app",
-    "types": [],
+    "types": ["node"],
     "strictPropertyInitialization": false
   },
   "files": [

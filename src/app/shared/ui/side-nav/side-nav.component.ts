@@ -28,7 +28,7 @@ export class SideNavComponent {
             width: '600px'
         });
 
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed().subscribe(() => {
             console.log('The dialog was closed');
         });
     }

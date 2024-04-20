@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import { MatLegacyDialogModule as MatDialogModule, MAT_LEGACY_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/legacy-dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +13,6 @@ import { environment as env } from '../environments/environment';
 import { LoginComponent } from './core/authentication/login/login.component';
 import { LogoutComponent } from './core/authentication/logout/logout.component';
 import { AuthButtonLogicComponent } from './core/authentication/auth-button-logic/auth-button-logic.component';
-import { MatLegacySliderModule as MatSliderModule } from '@angular/material/legacy-slider';
 import { FitAppService, CustomHttpParamEncoder, ProductsService } from './shared/services';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MainViewComponent } from './modules/home/components/main-view/main-view.component';
@@ -33,14 +31,12 @@ import { FoodDetailsComponent } from './shared/ui/food-details/food-details.comp
 import { DialogWindowComponent } from './shared/ui/dialog-window/dialog-window.component';
 import { FoodLabelComponent } from './shared/ui/food-label/food-label.component';
 import { CategoryService } from './shared/services/fit-app/category/category.service';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BarcodeScannerLivestreamModule } from 'ngx-barcode-scanner';
 import { BarcodeScanComponent } from './modules/products/barcode-scan/barcode-scan.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoader {
   return new MultiTranslateHttpLoader(http, [
@@ -87,16 +83,11 @@ export function createTranslateLoader(http: HttpClient): MultiTranslateHttpLoade
         AuthModule.forRoot({
             ...env.auth,
         }),
-        MatSliderModule,
         HttpClientModule,
-        MatDialogModule,
-        MatSelectModule,
-        MatInputModule,
-        NgxChartsModule,
-        MatProgressBarModule,
         FormsModule,
         ReactiveFormsModule,
-        BarcodeScannerLivestreamModule
+        BarcodeScannerLivestreamModule,
+        NgxChartsModule
     ],
     providers: [
         FitAppService,
